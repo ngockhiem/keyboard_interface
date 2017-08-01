@@ -18,12 +18,12 @@ module lcd(
   reg flag;
   reg [6:0] count;
   	
-	parameter IDLE		=11'b00000000000;
+  parameter IDLE		=11'b00000000000;
   parameter CLEAR		=11'b00000000001;
   parameter RETURNCURSOR	=11'b00000000010;
   parameter SETMODE	=11'b00000000100;		
   parameter SWITCHMODE	=11'b00000001000;		
-	parameter SHIFT		=11'b00000010000;		
+  parameter SHIFT		=11'b00000010000;		
   parameter SETFUNCTION	=11'b00000100000;		
   parameter SETCGRAM	=11'b00001000000;
   parameter SETDDRAM	=11'b00010000000;

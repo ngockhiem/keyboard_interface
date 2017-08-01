@@ -448,20 +448,9 @@ end
 // are received and the next (actual key) scan code is also ready.
 // (the presence of rx_extended or rx_released refers to the
 // the current latest scan code received, not the previously latched flags.)
-assign rx_output_event  = (rx_shifting_done
-                          && ~extended 
-                          && ~released
-                          );
+assign rx_output_event  = (rx_shifting_done && ~extended && ~released);
 
-assign rx_output_strobe = (rx_shifting_done
-                          && ~extended 
-                          && ~released
-                          && ( (TRAP_SHIFT_KEYS_PP == 0) 
-                               || ( (q[8:1] != `RIGHT_SHIFT)
-                                    &&(q[8:1] != `LEFT_SHIFT)
-                                  )
-                             )
-                          );
+assign rx_output_strobe = (rx_shifting_done && ~extended && ~released && ((TRAP_SHIFT_KEYS_PP == 0) || ((q[8:1] != `RIGHT_SHIFT) && (q[8:1] != `LEFT_SHIFT))));
 
 // This part translates the scan code into an ASCII value...
 // Only the ASCII codes which I considered important have been included.
